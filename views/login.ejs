@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header.ejs') %>
+        <nav>
+            <% if(admin) { %>
+            <a href='/products/new'>Add</a>
+            <% } else {  %>
+            <a href="/cart">Your cart</a>
+            <% } %>
+            <a href="/">Home</a>
+        </nav>
+
+    </header>
+    <div class="container product">
+        <h1>Log in</h1>
+        <form action="/login_submit" method="POST">
+            <div class="row">
+                <div class="col">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" placeholder="Use email: admin@gmail.com" class="form-control" required>
+                </div>
+                <div class="col">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" placeholder="Enter password: 12345" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="add">
+                <button type="submit" class="btn btn-primary">Log in</button>
+            </div>
+
+        </form>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

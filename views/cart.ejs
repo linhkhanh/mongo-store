@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header.ejs') %>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+
+    </header>
+    <div class="container  product">
+        <h1>YOUR CART</h1>
+        <% if(!cart) { %>
+        <p>No thing in your cart. <a href="/" class="shopping">Let's go shopping.</a></p>
+        </p>
+        <% } else { %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" class="title">#</th>
+                    <th scope="col" class="title">Product</th>
+                    <th scope="col" class="title">Price</th>
+                    <th scope="col" class="title">Quantity</th>
+                    <th scope="col" class="title">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let key in cart) { %>
+                <tr>
+                    <th scope="row"><%= index; %></th>
+                    <td><%= key;%></td>
+                    <td><%= cart[key].price; %>$</td>
+                    <td><%= cart[key].qty; %></td>
+                    <td><%= cart[key].price * cart[key].qty; %>$</td>
+                    
+                </tr>
+                <% index ++ %>
+                <% } %>
+            </tbody>
+        </table>
+        <div class="total">
+            <p><span class="title">Total:</span> <%= sum; %> $</p>
+            <a href='/user/buy'><button class="btn btn-success buy">Buy</button></a>
+        </div>
+
+        <% } %>
+
+    </div>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

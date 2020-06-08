@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&family=Tenali+Ramakrishna&display=swap');
+body {
+    font-size: 18px;
+    font-family: 'Varela Round', sans-serif;
+    background-color: #fbf9f1;
+}
+header {
+    display: flex;
+    flex-flow: row nowrap;
+}
+nav {
+    width: 50%;
+}
+nav > a {
+    margin: 3%;
+}
+.name > a > h1 {
+    font-weight: bolder;
+    font-size: 28px;
+}
+.name > a > h1 > img {
+    width: 15%;
+}
+h1 {
+    color: #2a6049;
+    font-family: 'Kanit', sans-serif;
+}
+a {
+    color: black;
+    font-family: 'Tenali Ramakrishna', sans-serif;
+    font-size: 24px;
+}
+a:hover {
+    color: green;
+} 
+header {
+    padding: 2%;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+}
+.name {
+    width: 40%;
+}
+nav {
+    width: 20%; 
+    justify-content: space-around;
+}
+.name > h1 {
+    padding: 2%;
+}
+footer {
+    width: 80%;
+    margin: auto;
+    background-color: #2a6049;
+    color: white;
+    padding: 2%;
+    margin-bottom: 4%;
+    margin-top: 2%;
+    font-size: 15px;
+}
+
+
+footer > h3 {
+    text-align: center;
+    margin-top: 2%;
+}
+h3 > img {
+    width: 5%;
+}
+.container > h1 {
+    text-align: center;
+    margin-bottom: 3%;
+    margin-top: 5%;
+    font-family: 'Kanit', sans-serif;
+}
+.card-title {
+    font-weight: bolder;
+}
+.card-body > p {
+    font-size: 15px;
+}
+.slide {
+    color: black;
+}
+
+.card {
+    margin-top: 1%;
+}
+.carousel {
+    width: 80%;
+    margin: auto;
+}
+.product {
+    background-color: white;
+    padding: 2%;
+}
+.title {
+    font-family: 'Balsamiq Sans', cursive;
+}
+.info {
+    margin-top: 2%;
+}
+.total {
+    text-align: right;
+}
+.edit {
+    font-size: 25px;
+    padding: 0 10px;
+}
+form > h2 {
+    text-align: center;
+    margin: 4% 0;
+    font-family: 'Kanit', sans-serif
+}
+
+.update {
+    text-align: right;
+}
+.update > form {
+    display: inline;
+}
+.add {
+    margin-top: 2%;
+    text-align: right;
+}
+.buy {
+    font-size: 25px;
+    padding: 0 5%;
+}
+.confirm {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.flex > img {
+    margin-right: 5%;
+}
+.shopping {
+    color: darkred;
+    text-decoration: underline;
+}
+.cart {
+    width: 10%;
+}

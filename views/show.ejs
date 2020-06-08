@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header.ejs') %>
+        <nav>
+            <% if(admin) { %>
+            <a href='/products/new'>Add</a>
+            <a href="/logout">Log out</a>
+            <% } else { %>
+            <a href="/login">Log in</a>
+            <a href="/cart"><img class="cart" src="https://toppng.com/uploads/preview/shopping-cart-png-image-shopping-cart-icon-sv-11562865326ta92uix1ak.png"> <%= count; %></a>
+            <% } %>
+            <a href="/">Home</a>
+        </nav>
+
+    </header>
+    <div class="container product">
+        <h1><%= product.name; %></h1>
+        <div class="flex">
+            <img src="<%= product.img; %>">
+            <div>
+                <p>Price: <%= product.price; %>$</p>
+                <% if(product.qty <= 0) { %>
+                <p>Out of stock</p>
+                <% } else { %>
+                <p class="title">Quantity: <%= product.qty; %></p>
+                <% if(admin) { %>
+
+                <form action="/products/<%= product.name %>/buy?_method=PUT" method="POST">
+                    <button type="submit" class="btn btn-primary">Buy</button>
+                </form>
+
+                <% } else { %>
+                <form action="/products/<%= product.name %>/add" method="POST">
+                    <button type="submit">ADD TO YOUR CART</button>
+                </form>
+                <% } %>
+                <% } %>
+                <p class="info"><span class="title">Description:</span> <%= product.description; %></p>
+                <% if(admin) { %>
+                <div class="update">
+                    <form action="/products/<%= product.name %>?_method=DELETE" method="POST">
+                        <button type="submit" class="tn btn-danger">Delete</button>
+                    </form>
+                    <a href='/products/<%= product.name; %>/edit' class="btn btn-info edit">Edit</a>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

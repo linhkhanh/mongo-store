@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header.ejs') %>
+        <nav>
+            <a href='/products/new'>Add</a>
+
+            <a href="/">Home</a>
+
+            <a href="/logout">Log out</a>
+        </nav>
+
+    </header>
+
+    <div class="container product">
+        <h1>EDIT PRODUCT</h1>
+        <form action="/products/<%= product.name; %>?_method=PUT" method="POST">
+            <div class="form-group">
+                <label for='name'>Name of product</label>
+                <input type='text' name='name' value="<%= product.name; %>" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for='description'>Description</label>
+                <input type='text' name='description' value="<%= product.description; %>" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for='img'>Image</label>
+                <input type='text' name='img' value="<%= product.img; %>" class="form-control" required>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for='price'>Price</label>
+                    <input type='number' name='price' value="<%= product.price; %>" class="form-control" min='0' required>
+                </div>
+                <div class="col">
+                    <label for='qty'>Quantity</label>
+                    <input type='number' name='qty' value="<%= product.qty; %>" class="form-control" min='0' required>
+                </div>
+            </div>
+           
+            <div class="add">
+                <button type="submit" class="btn btn-primary">Edit Product</button>
+            </div>
+            
+        </form>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

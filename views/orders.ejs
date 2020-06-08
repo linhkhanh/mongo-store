@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header.ejs') %>
+        <nav>
+            <a href="/logout">Log out</a>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+    <div class="container product">
+        <h1> ALL ORDERS </h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" class="title">#</th>
+                    <th scope="col" class="title">Name</th>
+                    <th scope="col" class="title">Address</th>
+                    <th scope="col" class="title">Products</th>
+                    <th scope="col" class="title">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% orders.forEach((item, index) => { %>
+                <tr>
+                    <th scope="row"><%= index+1; %></th>
+                    <td><%= item.name; %></td>
+                    <td><%= item.address; %></td>
+                    <td>
+                        <ul>
+                            <% for(key in item.products) { %>
+                            <li><%= key;%>: <%= item.products[key]; %></li>
+                            <% } %>
+                        </ul>
+
+                    </td>
+                    <td><%= item.total; %> $</td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+
+</html>

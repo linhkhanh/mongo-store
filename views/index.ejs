@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header.ejs') %>
+
+        <nav>
+            <% if(admin) { %>
+            <a href='/products/new'>Add</a>
+            <a href="/logout">Log out</a>
+            <a href="/orders">Orders</a>
+            <% } else { %>
+            <a href="/login">Log in</a>
+            <a href="/cart"><img class="cart" src="https://toppng.com/uploads/preview/shopping-cart-png-image-shopping-cart-icon-sv-11562865326ta92uix1ak.png"> <%= count; %></a>
+            <% } %>
+        </nav>
+    </header>
+
+    <!-- carousel -->
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://roadtovrlive-5ea0.kxcdn.com/wp-content/uploads/2017/03/Doraemon-Anywhere-Door-vr-4.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="slide">Any where door</h5>
+              <p class="slide">Go to wherever you want...</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://www.kindpng.com/picc/m/218-2180632_transparent-background-doraemon-friends-png-png-download-transparent.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="slide">Take-copter</h5>
+              <p class="slide">Now you can fly freely...</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://www.pngkey.com/png/detail/68-685597_doraemon-clipart-doraemon-friend-doraemon-gadgets-time-machine.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="slide">Timer machine</h5>
+              <p class="slide">Go to your future or your past easily ...</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <!-- Finish Carousel -->
+
+    <div class="container">
+        <h1>All Products</h1>
+        <div class="d-flex flex-wrap justify-content-between">
+            <% data.forEach((item) => { %>
+            <div class="card shadow p-3 mb- bg-white rounded" style="width: 14rem;">
+                <a href="/products/<%= item.name; %>"><img src='<%= item.img; %>' class="card-img-top"></a>
+                <div class="card-body">
+                    <h5 class="card-title"><%= item.name; %></h5>
+                    <p>Price: <%= item.price; %>$</p>
+                </div>
+
+            </div>
+            <% }) %>
+        </div>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

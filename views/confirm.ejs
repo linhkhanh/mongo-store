@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header.ejs') %>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+    <div class="container product">
+        <h1>YOUR INFORMATION</h1>
+        <% if(!cart) { %>
+        <p>Nothing in your cart. </p>
+        <p>Thank you for your shopping</p>
+        <a href="/" class="shopping">Let's go shopping.</a>
+        <% } else { %>
+        <form action="/user/buy?_method=PUT" method="POST">
+            <div class="form-row">
+                <div class="col">
+                    <label for='name' class="title">Your name</label>
+                    <input name='name' type='text' placeholder="enter your name" class="form-control" required>
+                </div>
+                <div class="col">
+                    <label for='address' class="title">Your address</label>
+                    <input name='address' type='text' placeholder="enter your address" class="form-control" required>
+                </div>
+            </div>
+            <h2>YOUR ORDER</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="title">#</th>
+                        <th scope="col" class="title">Product</th>
+                        <th scope="col" class="title">Price</th>
+                        <th scope="col" class="title">Quantity</th>
+                        <th scope="col" class="title">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let key in cart) { %>
+                    <tr>
+                        <th scope="row"><%= index; %></th>
+                        <td><%= key;%></td>
+                        <td><%= cart[key].price; %></td>
+                        <td><%= cart[key].qty; %></td>
+                        <td><%= cart[key].price * cart[key].qty; %>$</td>
+                        
+                    </tr>
+                    <% index ++ %>
+                    <% } %>
+                </tbody>
+            </table>
+            <div class="total">
+                <p><span class="title">Total:</span> <%= sum; %> $</p>
+            </div>
+
+            <div class="confirm">
+                <input type="submit" value="Confirm your order" class="btn btn-success">
+            </div>
+
+        </form>
+        <% } %>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>
