@@ -20,7 +20,7 @@ nav > a {
     font-size: 28px;
 }
 .name > a > h1 > img {
-    width: 15%;
+    width: 10%;
 }
 h1 {
     color: #2a6049;
@@ -44,8 +44,7 @@ header {
     width: 40%;
 }
 nav {
-    width: 20%; 
-    justify-content: space-around;
+    width: 30%; 
 }
 .name > h1 {
     padding: 2%;

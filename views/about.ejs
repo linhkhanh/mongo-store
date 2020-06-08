@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header.ejs') %>
+
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+    <div class="container product">
+        <h1>About this app</h1>
+        <h5>1. Source:</h5>
+        <ul>
+            <li>https://doraemon.fandom.com/wiki/Category:Gadgets</li>
+        </ul>
+
+
+        <h5>2. Admin:</h5>
+        <ul>
+            <li>email: admin@gmail.com</li>
+            <li>password: 12345</li>
+            <li>You have to log in to able to edit, delete or add new product. You also can see all the orders.</li>
+        </ul>
+        <h5>3. Guide to use</h5>
+        <ul>
+            <li>After add item to your cart, enter your information in the form.</li>
+            <li>Click confirm</li>
+            <li>The quantity of products that you just bought will be updated.</li>
+        </ul>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>
