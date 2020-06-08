@@ -5,7 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 const url = process.env.MONGODB_URI || 'mongodb://localhost:27017';
 
 // Database Name
-const dbName = 'homework';
+const dbName = process.env.DB_NAME || 'homework';
 // Create a new MongoClient
 const client = new MongoClient(url, { useUnifiedTopology: true });
 
